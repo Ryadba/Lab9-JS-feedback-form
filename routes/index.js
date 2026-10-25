@@ -20,8 +20,15 @@ router.get('/feedback-form', function (req, res, next) {
 
 router.get('/submit-feedback', function (req, res, next) {
     // access the form data
-    const formData = req.query
+    //  const formData = req.query //for a GET request, read the URL query
+    const formData = req.body // for a POST request, read the body of the request
     console.log(formData)
+    
+    //todo- save the form data to a database.
+    //automatically email someone when feedback was submitted
+
+
+
 
     res.render('thank_you', {
         name: formData.name,
