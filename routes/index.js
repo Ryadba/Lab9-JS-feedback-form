@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router() // figures out what code to run in response to a request
 // typically based on the URL, and the method, GET, POST
+const databaseModels = require('../models')
+const Feedback = databaseModels.Feedback
 
 // responds to get request to home page /
 router.get('/', function (req, res, next) { // request, response, next
@@ -23,13 +25,13 @@ router.post('/submit-feedback', function (req, res, next) {
     //  const formData = req.query //for a GET request, read the URL query
     const formData = req.body // for a POST request, read the body of the request
     console.log(formData)
+    return res.render('thank_you', { ...formData })
 
-    res.render('thank_you', {
-        name: formData.name,
-        email: formData.email,
-        comments: formData.comments,
-        currentStudent: formData['current-student']
-    })
+    // res.render('thank_you', {
+    //    name: formData.name,
+    //    email: formData.email,
+    //    comments: formData.comments,
+    //    currentStudent: formData['current-student']
 })
 
 module.exports = router // the last line of the file
