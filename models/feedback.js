@@ -23,13 +23,13 @@ function createFeedbackTable(sequelizeDatabase) {
                 type : DataTypes.STRING,
                 allowNull: true 
             },
-            isCurrentStudent:{
-                type : DataTypes.BOOLEAN,
-                allowNull: true 
-            },
             comments: {
                 type : DataTypes.STRING,
                 allowNull: false //comments are required 
+            },
+            isCurrentStudent:{
+                type : DataTypes.BOOLEAN,
+                allowNull: true 
             },
             departments: {
                 type : DataTypes.JSON, //store the JSON Array
@@ -39,9 +39,7 @@ function createFeedbackTable(sequelizeDatabase) {
         }
     )
 
-    Feedback.sync({force: false}).then(() => {
-        console.log('Synced feedback table')
-    })
+    Feedback.sync({force: false}).then(() => console.log('Synced feedback table'))
 
     return Feedback
 }

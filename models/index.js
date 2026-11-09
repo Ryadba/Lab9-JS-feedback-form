@@ -27,6 +27,7 @@ const createFeedbackModel = require('./feedback')
 const feedbackModel = createFeedbackModel(sequelizeDatabase)
 
 const models = {} // Could have multiple models in the app
+const feedbackModelName = feedbackModel.name
 
 models[feedbackModel.name] = feedbackModel // {'Feedback': theModelObject }
 

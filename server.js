@@ -2,7 +2,8 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser') // parse the body of a POST request 
 
-const indexRouter = require('./routes/index.js')
+const indexRouter = require('./routes/index')
+const adminRouter = require('./routes/admin')
 
 const app = express() // creates the web-app server
 
@@ -17,17 +18,13 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs') // use handlebars to generate views
 
 app.use('/', indexRouter) // all requests to the app will be passed to indexRouter
+app.use('/admin', adminRouter) // all requests to admin will be passed to adminRouter
 
-// start server running on port 3000
-// const port = process.env.PORT || 3000
-// const server = app.listen(port, function() {
-//   console.log('Express server running on port', port)
-//})
+app.use(function(err, req, res, next) {
+    console.error(err.stack) // logs an error for the Developer
+    res.status(500).render('error') // renders user-friendly error page
+})  
 
-
- //const server = app.listen(process.env.PORT || 3000, function() {
- //  console.log('Express server running on port', server.address().port)
- //})
 
 // start server running on port 3000
  let server = app.listen(process.env.PORT || 3000, function() {

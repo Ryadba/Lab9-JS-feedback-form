@@ -25,13 +25,20 @@ router.post('/submit-feedback', function (req, res, next) {
     //  const formData = req.query //for a GET request, read the URL query
     const formData = req.body // for a POST request, read the body of the request
     console.log(formData)
-    return res.render('thank_you', { ...formData })
-
+    
     // res.render('thank_you', {
-    //    name: formData.name,
-    //    email: formData.email,
-    //    comments: formData.comments,
-    //    currentStudent: formData['current-student']
+        //    name: formData.name,
+        //    email: formData.email,
+        //    comments: formData.comments,
+        //    currentStudent: formData['current-student']
+        
+        Feedback.create(formData).then( () => { // this code runs after the feedback is saved
+            res.render('thank_you', { ...formData })
+        }).catch((error) => {
+            res.locals.message = 'Error saving feedback. Please try again later'
+            next(error)
+        })
+
 })
 
 module.exports = router // the last line of the file
