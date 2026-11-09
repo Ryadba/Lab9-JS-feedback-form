@@ -8,9 +8,9 @@
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
-        <th>Comment</th>
+        <th>Comments</th>
         <th>Current Student</th>
-        <th>Department(S)</th>
+        <th>Department(s)</th>
         <th>Created At</th>
     </thead>
 
@@ -21,9 +21,9 @@
             <td>{{this.id}}</td>
             <td>{{this.name}}</td>
             <td>{{this.email}}</td>
-            <td>{{this.comment}}</td>
+            <td>{{this.comments}}</td>
             <td>{{this.isCurrentStudent}}</td>
-            <td>{{this.department}}</td>
+            <td>{{this.departments}}</td>
             <td>{{this.createdAt}}</td>
         </tr>
         {{/each}}
@@ -32,6 +32,6 @@
 
 {{else}}
 
-<p>No feedback in the database .</p>
+<p>No feedback in the database.</p>
 
 {{/if}}

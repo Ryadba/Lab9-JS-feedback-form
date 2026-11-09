@@ -29,7 +29,23 @@ function createFeedbackTable(sequelizeDatabase) {
             },
             isCurrentStudent:{
                 type : DataTypes.BOOLEAN,
-                allowNull: true 
+                allowNull: true,
+                get(){
+                    // if the database stores false, return 'no', if it stores true, return 'yes'
+                    if (this.getDataValue('isCurrentStudent')) {
+                        return 'yes'
+                    } else {
+                        return 'no'
+                    }
+                },
+                set(newValue){
+                    // convert 'yes' to true and 'no' to false to store in the database
+                    if (newValue === 'yes') {
+                        this.setDataValue('isCurrentStudent', true)
+                    } else { // the value is 'no'
+                        this.setDataValue('isCurrentStudent', false)
+                    }
+                }
             },
             departments: {
                 type : DataTypes.JSON, //store the JSON Array

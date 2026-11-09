@@ -13,8 +13,8 @@ const { Sequelize } = require('sequelize')
 // postgres _ yes, needs authentication.
 
 const configuration = {
-'storage': 'feedback. sqlite', // where is DataBase? "stored in a file called feedback.sqlite"
-'dialect': 'sqlite' // what kind of DB?
+'storage': 'feedback.sqlite', // where is DataBase? "stored in a file called feedback.sqlite"
+'dialect': 'sqlite' // what kind of Database?
 }
 
 const sequelizeDatabase = new Sequelize(configuration)
