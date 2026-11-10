@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser') // parse the body of a POST request 
 
+// import the routes in routes/index.js
+
 const indexRouter = require('./routes/index')
 const adminRouter = require('./routes/admin')
 
@@ -24,7 +26,6 @@ app.use(function(err, req, res, next) {
     console.error(err.stack) // logs an error for the Developer
     res.status(500).render('error') // renders user-friendly error page
 })  
-
 
 // start server running on port 3000
  let server = app.listen(process.env.PORT || 3000, function() {

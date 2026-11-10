@@ -24,21 +24,34 @@ router.post('/submit-feedback', function (req, res, next) {
     // access the form data
     //  const formData = req.query //for a GET request, read the URL query
     const formData = req.body // for a POST request, read the body of the request
-    console.log(formData)
     
+
     // res.render('thank_you', {
-        //    name: formData.name,
-        //    email: formData.email,
-        //    comments: formData.comments,
-        //    currentStudent: formData['current-student']
+    //    name: formData.name,
+    //    email: formData.email,
+    //    comments: formData.comments,
+    //    currentStudent: formData['current-student']
+
+    // save thedata in the form to the database
+    Feedback.create(formData).then(newFeedback => { // this code runs after the feedback is saved
         
-        Feedback.create(formData).then( () => { // this code runs after the feedback is saved
-            res.render('thank_you', { ...formData })
-        }).catch((error) => {
-            res.locals.message = 'Error saving feedback. Please try again later'
-            next(error)
+        res.render('thank_you', { ...formData })
+
+        identifyDepartments(req.body.comments).then(departments => {
+            console.log(departments)
+
+            Feedback.update({ departments: departments }, { where: { id: newFeedback.id } } )
+        }).catch(error => {
+            //we dont need to tell the user. Feedback can be categorized manually, but thats not the use issue
+            console.error(error)
         })
 
+
+    }).catch(error => {
+        // Adds to object containing data used to render template, will be shown in error template.
+        res.locals.message = 'Error saving feedback. Please try again later.'
+        next(error)
+    })
 })
 
 module.exports = router // the last line of the file
