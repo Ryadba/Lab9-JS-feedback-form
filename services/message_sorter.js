@@ -1,7 +1,9 @@
-const { GoogleGenAI, Type } = require('@google/genai')
+require('dotenv').config() // Read API keys and other configuration values from the .env file
+
+let { GoogleGenAI, Type, Environment } = require('@google/genai') 
 const departments = require('./departments.json')
 
-const genAI = new GoogleGenAI({})
+const genAI = new GoogleGenAI({apiKey: process.env.GEMINI_API_KEY}) // Create a Gemini client using environment variables
 
 module.exports = (feedbackComments) => {
     
@@ -17,7 +19,7 @@ module.exports = (feedbackComments) => {
     Department Choices: ${departmentString}`
 
     return genAI.models.generateContent({
-        model: 'gemini-3.5-flash-lite',
+        model: 'gemini-3.5-flash',
         contents: prompt,
         config: {
             responseMimeType: 'application/json',
