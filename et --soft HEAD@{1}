@@ -1,0 +1,15 @@
+[33ma617db3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~2
+[33mbe3b519[m HEAD@{1}: commit: ignore fix
+[33m348e9e9[m HEAD@{2}: commit: api fix commit
+[33ma617db3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{3}: reset: moving to HEAD~2
+[33mf1f7dc8[m HEAD@{4}: reset: moving to HEAD~2
+[33m79e4fe6[m HEAD@{5}: commit: ignore commit
+[33mc970f95[m HEAD@{6}: commit: api fix 3
+[33mf1f7dc8[m HEAD@{7}: commit: Api final fix commit
+[33m1e404f4[m HEAD@{8}: commit: api fix commit
+[33ma617db3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{9}: reset: moving to HEAD~2
+[33mec57923[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{10}: reset: moving to HEAD~2
+[33mfc14a96[m HEAD@{11}: commit: Api fix 2 commit
+[33m9a63b9b[m HEAD@{12}: commit: Api fix commit
+[33mec57923[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{13}: commit: genai testing commit
+[33mb6a77ca[m HEAD@{14}: clone: from https://github.com/Ryadba/Lab9-JS-feedback-form
